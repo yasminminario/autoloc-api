@@ -33,7 +33,8 @@ public class Contrat {
     @Column(nullable = false)
     private Boolean valide;
 
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL,
+            orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Paiement> payments = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY)
